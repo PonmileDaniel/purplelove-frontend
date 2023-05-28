@@ -28,7 +28,7 @@ export default function Profile() {
     const getFriends = async () => {
       try {
         if (user && user._id) {
-          const friendList = await axios.get("/users/friends/" + user._id);
+          const friendList = await axios.get("https://purplelove-api.onrender.com/api/users/friends/" + user._id);
           setFriends(friendList.data);
         }
       } catch (err) {
@@ -56,10 +56,10 @@ export default function Profile() {
   const handleClick = async () =>{
     try{
       if(followed){
-        await axios.put("/users/" + user._id + "/unfollow", {userId: currentUse._id})
+        await axios.put("https://purplelove-api.onrender.com/api/users/" + user._id + "https://purplelove-api.onrender.com/api/unfollow", {userId: currentUse._id})
         dispatch({type: "UNFOLLOW", payload:user._id})
       }else{
-        await axios.put("/users/" + user._id + "/follow", {userId: currentUse._id})
+        await axios.put("https://purplelove-api.onrender.com/api/users/" + user._id + "https://purplelove-api.onrender.com/api/follow", {userId: currentUse._id})
         dispatch({type: "FOLLOW", payload:user._id})
       }
       
@@ -74,7 +74,7 @@ export default function Profile() {
  useEffect(() => {
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`/users?username=${username}`);
+      const response = await axios.get(`https://purplelove-api.onrender.com/api/users?username=${username}`);
       setUser(response.data); // Pass the fetched data to the 'setPosts' function
     } catch (error) {
       console.log(error);

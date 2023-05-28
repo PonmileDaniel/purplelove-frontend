@@ -25,7 +25,7 @@ useEffect(() =>{
 useEffect(() => {
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`https://purplelove-api.onrender.com/users?userId=${post.userId}`);
+      const response = await axios.get(`https://purplelove-api.onrender.com/api/users?userId=${post.userId}`);
       setUser(response.data); // Pass the fetched data to the 'setPosts' function
     } catch (error) {
       console.log(error);
@@ -40,7 +40,7 @@ useEffect(() => {
 //This is to Handle the Like nd Love And Functionality 
 const likeHandler = ()=>{
   try{
-    axios.put("https://purplelove-api.onrender.com/post/"+post._id+"/like", {userId:currentUser._id});
+    axios.put("https://purplelove-api.onrender.com/api/post/"+post._id+"/like", {userId:currentUser._id});
   }
   catch(err){}
   setlike(islike ? like - 1 : like + 1)

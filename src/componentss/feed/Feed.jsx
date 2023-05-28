@@ -18,8 +18,8 @@ export default function Feed({username}) {
     const fetchData = async () => {
       try {
         const response = username 
-        ? await axios.get("https://purplelove-api.onrender.com/post/profile/" + username)
-         : await axios.get("https://purplelove-api.onrender.com/post/timeline/" + user._id );
+        ? await axios.get("https://purplelove-api.onrender.com/api/post/profile/" + username)
+         : await axios.get("https://purplelove-api.onrender.com/api/post/timeline/" + user._id );
         setPosts(response.data.sort((p1,p2) =>{
           return new Date(p2.createdAt) - new Date(p1.createdAt)
         })); // Pass the fetched data to the 'setPosts' function

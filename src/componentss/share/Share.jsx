@@ -34,13 +34,13 @@ export default function Share() {
    
       newPost.img = fileName;
       try {
-        await axios.post("https://purplelove-api.onrender.com/upload", data);
+        await axios.post("https://purplelove-api.onrender.com/api/upload", data);
       }catch(err){
        
       }
     }
     try{
-     await axios.post("https://purplelove-api.onrender.com/post", newPost);
+     await axios.post("https://purplelove-api.onrender.com/api/post", newPost);
      window.location.reload();
     }catch(err){
 

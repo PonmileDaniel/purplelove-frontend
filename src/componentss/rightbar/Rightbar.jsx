@@ -34,7 +34,7 @@ export default function Rightbar({user}) {
     const getFriends = async () => {
       try {
         if (user && user._id) {
-          const friendList = await axios.get("https://purplelove-api.onrender.com/users/friends/" + user._id);
+          const friendList = await axios.get("https://purplelove-api.onrender.com/api/users/friends/" + user._id);
           setFriends(friendList.data);
         }
       } catch (err) {
@@ -49,10 +49,10 @@ export default function Rightbar({user}) {
   const handleClick = async () =>{
     try{
       if(followed){
-        await axios.put("https://purplelove-api.onrender.com/users/" + user._id + "https://purplelove-api.onrender.com/unfollow", {userId: currentUser._id,})
+        await axios.put("https://purplelove-api.onrender.com/api/users/" + user._id + "https://purplelove-api.onrender.com/unfollow", {userId: currentUser._id,})
         dispatch({type: "UNFOLLOW", payload:user._id})
       }else{
-        await axios.put("https://purplelove-api.onrender.com/users/" + user._id + "https://purplelove-api.onrender.com/follow", {userId: currentUser._id})
+        await axios.put("https://purplelove-api.onrender.com/api/users/" + user._id + "https://purplelove-api.onrender.com/follow", {userId: currentUser._id})
         dispatch({type: "FOLLOW", payload:user._id})
       }
       
